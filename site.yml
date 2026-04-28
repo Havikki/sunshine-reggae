@@ -1,0 +1,9 @@
+- hosts: all
+  become: true
+  roles:
+#    - hello
+#    - ansjoo
+#    - asennus
+#    - monirivi
+#    - nginx
+     - vsftpd

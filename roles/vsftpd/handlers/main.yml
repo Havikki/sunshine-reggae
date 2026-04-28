@@ -1,0 +1,4 @@
+- name: Käynnistä vsftpd uudelleen
+  service:
+    name: vsftpd
+    state: restarted

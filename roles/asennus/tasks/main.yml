@@ -1,0 +1,6 @@
+- name: Asenna Apache2 ja micro
+  ansible.builtin.package:
+    name:
+      - apache2
+      - micro
+    state: present

@@ -1,0 +1,32 @@
+- name: Install nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Copy site config
+  copy:
+    src: joonas.conf
+    dest: /etc/nginx/sites-available/joonas.conf
+    owner: root
+    group: root
+    mode: "0644"
+  notify: restart nginx
+
+- name: Enable site (symlink)
+  file:
+    src: /etc/nginx/sites-available/joonas.conf
+    dest: /etc/nginx/sites-enabled/joonas.conf
+    state: link
+  notify: restart nginx
+
+- name: Disable default site
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+  notify: restart nginx
+
+- name: Ensure nginx is running and enabled
+  service:
+    name: nginx
+    state: started
+    enabled: true

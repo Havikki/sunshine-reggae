@@ -1,0 +1,6 @@
+- copy:
+    dest: "/tmp/monirivi.txt"
+    content: "Monirivinen teksti\n testikokeilu rivi 2\n rivi3 olis tässä\n rivi4 jne"
+    owner: "root"
+    group: "root"
+    mode: "0644"
